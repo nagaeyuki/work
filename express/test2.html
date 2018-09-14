@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <form id="form_1" method="post" accept-charset="utf-8" return false>
+        <p>名前
+            <input type="text" name="userid" id="userid"> </p>
+        <p>パスワード
+            <input type="text" name="passward" id="passward"> </p>
+    </form>
+
+    <button id="ajax">ajax</button>
+    <div class="result"></div>
+
+    <script type="text/javascript">
+        $(function () {
+            // Ajax button click
+            $('#ajax').on('click', function () {
+                $.ajax({
+                    url: "http://localhost:3000",
+                    type: "POST",
+                    data: {
+                        id: "aaa",
+                        id2: "bbb"
+                    },
+                    success: function (data, status, xhr) {
+                        alert("OK");
+                        //通信成功時
+                    },
+                    error: function (xhr, status, error) {
+                        alert("NO"); //通信失敗時 
+                    },
+                    complete: function (xhr, status) {
+                        alert("complete");
+                        //通信完了時 
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
